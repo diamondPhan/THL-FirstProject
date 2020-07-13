@@ -1,0 +1,85 @@
+<button class="sidebar-brand" style="background-color: #212529; color: white; width: 30px; height: 30px;" (click)="toggle()"><i class="fa fa-bars fa-1x"></i></button>
+<div *ngIf="show">
+<nav id="sidebar" class="sidebar-wrapper">
+ 
+<div class="sidebar-content">
+  <div class="sidebar-brand">
+    <a>Menu</a>
+    <div id="close-sidebar">
+      <a (click)="toggle()">
+      <i class="fas fa-times"></i>
+    </a>
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="user-pic">
+      <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+        alt="User picture">
+    </div>
+    <div class="user-info">
+      <span class="user-name" *ngIf="displayName">{{displayName}}
+      </span>
+      <span class="user-role">Administrator</span>
+      <span class="user-status">
+        <i class="fa fa-circle"></i>
+        <span>Online</span>
+      </span>
+    </div>
+  </div>
+  <!-- sidebar-header  -->
+  <div class="sidebar-search">
+    <div>
+      <div class="input-group">
+        <input type="text" class="form-control search-menu" placeholder="Search...">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar-search  -->
+  <div class="sidebar-menu">
+    <ul>
+      <li class="header-menu">
+        <span>General</span>
+      </li>
+      <li class="sidebar-dropdown">
+        <a href="/admin/dashboard">
+          <i class="fa fa-home"></i>
+          <span>Dashboard</span>
+         
+        </a>
+      </li>
+      <li class="sidebar-dropdown">
+        <a [routerLink]="['/admin/myprofile',displayName,displayEmail]" routerLinkActive="router-link-active" >
+          <i class="fa fa-user"></i>
+          <span>My Profile</span>
+          <span class="badge badge-pill badge-danger">3</span>
+        </a>
+      </li>
+      <li class="sidebar-dropdown">
+        <a [routerLink]="['/admin/main',displayName]" routerLinkActive="router-link-active" >
+          <i class="far fa-gem"></i>
+          <span>Community Post</span>
+          <span class="badge badge-pill badge-warning">New</span>
+        </a>
+      </li>
+      <li class="sidebar-dropdown" *ngIf="displayName" (click)="Logout()">
+        <a href="#">
+          <i class="fa fa-power-off"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- sidebar-menu  -->
+</div>
+<!-- sidebar-content  -->
+<div class="sidebar-footer">
+</div>
+
+</nav>
+</div>

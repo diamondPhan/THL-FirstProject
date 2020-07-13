@@ -1,0 +1,93 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 30px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="d-flex tutorial-item mb-4" *ngFor="let question of questionlist">
+      <div class="img-wrap">
+        <a><img style="width: 100px; height: 100px;" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="Image" class="img-fluid"></a>
+      </div>
+      <div>
+        <h3><a href="#">{{question.Author}}</a></h3>
+        <p>{{question.Post}}</p>
+        
+        <p class="mb-0">
+          <span class="brand-react h5"></span>
+          <span class="brand-javascript h5"></span>
+        </p>
+        <p class="meta">
+          <span class="mr-2 mb-2">{{question.Date | date:'short'}}</span>
+          
+        </p>
+        
+        <p><a [routerLink]="['/admin/postdetail', question.id,getName]"
+        routerLinkActive="router-link-active" class="btn btn-primary custom-btn">View</a></p>
+
+        <!--Edit post  -->
+        <button type="button" class="btn btn-warning" *ngIf="question.Author==getName" (click)="edit(question)" data-toggle="modal" data-target="#editModal">Edit</button>
+
+        <div *ngIf="editState && questiontoEdit.id == question.id">
+             <div class="modal fade" id="editModal" role="dialog">
+                 <div class="modal-dialog">
+                 
+                   <!-- Modal content-->
+                    <div class="modal-content">
+                     <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       <h4 class="modal-title">Edit Item</h4>
+                     </div>
+                     <div class="modal-body">
+                         <form  >
+                             <!-- (ngSubmit)="updateItem(item)" -->
+                             <div class="col-sm-9">
+                                 <label for="id"><b>ID</b></label>
+                                 <input type="text" class="form-control" readonly placeholder="Enter id " [(ngModel)]="question.id" [ngModelOptions]="{standalone: true}" >
+                             </div>
+                             <div class="col-sm-9">
+                                 <label for="name"><b>Author</b></label>
+                                 <input type="name" class="form-control" readonly placeholder="Enter Name"[(ngModel)]="question.Author" [ngModelOptions]="{standalone: true}">
+                             </div>
+                             <div class="col-sm-9">
+                                 <label for="price"><b>Date</b></label>
+                                 <p>{{question.Date |date:'short'}}</p>
+                                 <!-- <input type="price" class="form-control" placeholder="Enter Price" [(ngModel)]="question.Date | date:'short'" [ngModelOptions]="{standalone: true}"> -->
+                             </div>
+                             <div class="col-sm-9">
+                                 <label for="type"><b>Post</b></label>
+                                 <input type="text" class="form-control" placeholder="Enter Type" [(ngModel)]="question.Post" [ngModelOptions]="{standalone: true}">
+                             </div>
+                             
+                             <button type="submit" (click)="update1(question)"class="btn btn-success" data-dismiss="modal">OK</button> 
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </form>
+
+                     </div>
+                     <div class="modal-footer">
+                         
+                   </div>
+                   
+                 </div>
+               </div>  
+          </div>
+          </div>
+        
+
+      </div>
+    </div>
+    </div>
+</div>

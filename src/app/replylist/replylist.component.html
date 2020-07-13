@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-lg-8" *ngFor="let reply of replies">
+      <div class="d-flex tutorial-item mb-4" *ngIf="reply.questionID==getID" >
+        <div class="img-wrap">
+          <a><img style="width: 100px; height: 100px;" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="Image" class="img-fluid"></a>
+        </div>
+        <div>
+          <h3><a href="#">{{reply.Author}}</a></h3>
+          <p>{{reply.Post}}</p>
+          
+          <p class="mb-0">
+            <span class="brand-react h5"></span>
+            <span class="brand-javascript h5"></span>
+          </p>
+          <p class="meta">
+            <span class="mr-2 mb-2">{{reply.Date | date:'short'}}</span>
+            
+          </p>
+         
+                     
+        </div>
+                 </div>  
+            </div>
+</div>
