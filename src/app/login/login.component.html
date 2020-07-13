@@ -1,0 +1,87 @@
+
+<!-- <body style="background-color: #666666;"> -->
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" [formGroup]="loginform" (ngSubmit)="onSubmit()">
+					<span class="login100-form-title p-b-43">
+						Login to continue
+					</span>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" required="" placeholder="Email" formControlName="email">
+                          
+                        <div *ngIf="loginform.controls.email.invalid && (loginform.controls.email.dirty ||loginform.controls.email.touched)">
+                                <small *ngIf="loginform.controls.email.errors.required" class="text-danger">email is required.</small>
+                                     
+                        <!-- <input class="input100" type="text" name="email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span> -->
+                    </div>
+                    
+                    </div>
+                    <br>
+					<span class="focus-input100"></span> 
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<!-- <input class="input100" type="password" name="pass"> -->
+						<!-- <span class="focus-input100"></span> -->
+                        <!-- <span class="label-input100">Password</span> -->
+                        <input class="input100" type="password" required="" placeholder="Password" formControlName="password">
+                       
+                        <div *ngIf="loginform.controls.password.invalid && (loginform.controls.password.dirty ||loginform.controls.password.touched)">
+                                    <small *ngIf="loginform.controls.password.errors.required" class="text-danger">password is required.</small>
+                                      <!-- <small *ngIf="registerForm.errors.email" class="text-danger" >Email is invalid</small>	  -->
+                                      </div>
+                                      
+                    </div>
+                    <br>
+                    <span class="focus-input100"></span>
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+						<div>
+							<a href="./assets/#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+			
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn"   (click)="loginwithfb()">
+							Login
+						</button>
+					</div>
+					
+					<div class="text-center p-t-46 p-b-20">
+						<span class="txt2">
+							or sign up using
+						</span>
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a  (click)="tryGoogleLogin()" style="background-color: red;" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fa fa-google" aria-hidden="true"></i>
+						</a>
+
+						
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url('./assets/images/bg-01.jpg');">
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- </body> -->
+
+

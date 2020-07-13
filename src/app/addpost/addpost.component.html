@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit()" class="col s6">
+
+    <div class="col-sm-9">
+        <label for="id"><b>ID</b></label>
+        <input type="text" class="form-control" placeholder="Enter Id" [(ngModel)]="questions.ID" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="col-sm-9">
+        <label for="name"><b>Author</b></label>
+        <p> {{questions.Author}}</p>
+        <!-- <input type="name" class="form-control"  [(ngModel)]="questions.Author" [ngModelOptions]="{standalone: true}"> -->
+    </div>
+    <div class="col-sm-9">
+        <label for="price"><b>Date</b></label>
+        <p>{{questions.Date |date:'short'}}</p>
+        <!-- <input type="price" class="form-control" readonly  [(ngModel)]="questions.Date | date:'short'" [ngModelOptions]="{standalone: true}"> -->
+    </div>
+    <div class="col-sm-9">
+        <label for="type"><b>Post</b></label>
+        <input type="text" class="form-control" placeholder="Enter your post" [(ngModel)]="questions.Post" [ngModelOptions]="{standalone: true}">
+    </div>
+    
+    <br>
+    <button type="submit"  class="btn btn-success mr-2">OK</button>
+ 
+</form>
