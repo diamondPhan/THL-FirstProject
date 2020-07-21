@@ -21,6 +21,7 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { PostdetailComponent } from './postdetail/postdetail.component';
 import { ReplylistComponent } from './replylist/replylist.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { ReplylistComponent } from './replylist/replylist.component';
     MyprofileComponent,
     PostdetailComponent,
     ReplylistComponent,
+  
    
   ],
   imports: [

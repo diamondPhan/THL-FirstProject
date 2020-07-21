@@ -1124,6 +1124,22 @@ input.input100 {
   padding: 10px 15px;
   margin-top: 7px;
 }
+h3 a #TxtEmailForm{
+  /* visibility: hidden; */
+  /* text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap; 
+  width: 100px; */
+  max-width: 95px;
+  max-height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  border: solid 1px black;
+  font-size: 12pt;
+  text-align: right;
+  white-space: nowrap;
+}
 
 @media only screen and (max-width:800px) {
   /* For tablets: */
@@ -1140,7 +1156,18 @@ input.input100 {
   .menu, .main, .right {
     width: 100%;
   }
+  #TxtEmail{
+    max-width: 95px;
+    max-height: 25px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    font-size: 11pt;
+    text-align: right;
+    white-space: nowrap;
+  }
 }
+
 .tutorial-item {
   padding: 20px;
   border-radius: 4px;

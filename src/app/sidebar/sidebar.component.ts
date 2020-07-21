@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
   passwordtemp:string="";
   temp:any
   displayEmail:any;
-  public show:boolean=false;
+  public show:boolean=true;
   constructor( private userService: UserService) { }
 
   ngOnInit(): void {

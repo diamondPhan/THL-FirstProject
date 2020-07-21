@@ -3,6 +3,8 @@ import {ManagequestionService} from '../services/managequestion.service'
 import { question } from '../model/question';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { reply } from '../model/replylist';
+import { ManagereplyService } from '../services/managereply.service';
 
 @Component({
   selector: 'app-questionlist',
@@ -14,7 +16,7 @@ export class QuestionlistComponent implements OnInit {
   editState:boolean= false;
   questiontoEdit: any;
 
-  constructor(private managequestionService:ManagequestionService, private router:Router, private afs: AngularFirestore,private route:ActivatedRoute) { }
+  constructor(private managereplyService:ManagereplyService,private managequestionService:ManagequestionService, private router:Router, private afs: AngularFirestore,private route:ActivatedRoute) { }
  questionlist: question[];
  questionDoc:AngularFirestoreDocument<question>;
  getID:string;
@@ -34,6 +36,7 @@ export class QuestionlistComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('displayName');
     this.getName=id;
     console.log(this.getName);
+    
   }
   
   get(){
@@ -60,6 +63,23 @@ delete(id: string) {
 // gotopostdetail(id:string){
 // this.route.navigate(['PostDetail',{id:id}]);
 // }
+replies: reply={
+  questionID:'',
+  Author:this.getName,
+  Post: '',
+  Date:Date.now(),
+  
+}
+onSubmit(questionlist){
+
+    this.replies.questionID=questionlist.id;
+    this.replies.Author=this.getName;
+    this.replies.Date=Date.now();
+    this.managereplyService.createReply(this.replies);
+    this.replies.Post='';
+    this.router.navigate(['/admin/postdetail/',this.getID,this.getName]);
+  console.log(this.replies);
+}
 }
 
   

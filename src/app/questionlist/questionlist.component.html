@@ -15,15 +15,28 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+  @media only screen and (max-width:400px) {
+    #TxtEmailForm{
+    max-width: 95px;
+  max-height: 25px;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  font-size: 11pt;
+  text-align: right;
+  white-space: nowrap;
+  }
+}
+  
 </style>
 <div class="row">
   <div class="col-lg-8">
-    <div class="d-flex tutorial-item mb-4" *ngFor="let question of questionlist">
+    <div class="d-flex tutorial-item mb-4" style="width: 100%;" *ngFor="let question of questionlist">
       <div class="img-wrap">
         <a><img style="width: 100px; height: 100px;" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="Image" class="img-fluid"></a>
       </div>
       <div>
-        <h3><a href="#">{{question.Author}}</a></h3>
+        <h3 ><a id="TxtEmailForm">{{question.Author}}</a></h3>
         <p>{{question.Post}}</p>
         
         <p class="mb-0">
@@ -85,7 +98,53 @@ table {
                </div>  
           </div>
           </div>
-        
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#quickModal">Reply</button>
+   
+           
+          <div class="modal fade" id="quickModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                 <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Quick Reply</h4>
+                  </div>
+                  <div class="modal-body">
+                     <form (ngSubmit)="onSubmit(question)" class="col s6">
+          
+                        <!-- <div class="col-sm-9">
+                            <label for="id"><b>ID</b></label>
+                            <input type="text" class="form-control" placeholder="Enter Id" [(ngModel)]="questions.ID" [ngModelOptions]="{standalone: true}">
+                        </div> -->
+                        <!-- <div class="col-sm-9">
+                            <label for="name" ><b>Author</b></label>
+          
+                            <input type="name" value="getName" class="form-control" [(ngModel)]="questions.Author" [ngModelOptions]="{standalone: true}">
+                        </div> -->
+                        <div class="col-sm-9">
+                            <label for="price"><b>Date</b></label>
+                            <p>{{replies.Date |date:'short'}}</p>
+                            <!-- <input type="price" class="form-control" readonly  [(ngModel)]="questions.Date | date:'short'" [ngModelOptions]="{standalone: true}"> -->
+                        </div>
+                        <div class="col-sm-9">
+                            <label for="type"><b>Post</b></label>
+                            <input type="text" class="form-control" placeholder="Enter your post" [(ngModel)]="replies.Post" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        
+                        <br>
+                        <button type="submit"  class="btn btn-success mr-2">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </form>
+          
+                  </div>
+                  <div class="modal-footer">
+                      
+                </div>
+                
+              </div>
+            </div>  
+          </div>
 
       </div>
     </div>
