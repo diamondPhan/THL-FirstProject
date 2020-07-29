@@ -20,7 +20,7 @@
     <div class="user-info">
       <span class="user-name" *ngIf="displayName">{{displayName}}
       </span>
-      <span class="user-role">Administrator</span>
+      <span class="user-role">Welcome</span>
       <span class="user-status">
         <i class="fa fa-circle"></i>
         <span>Online</span>
@@ -47,7 +47,7 @@
         <span>General</span>
       </li>
       <li class="sidebar-dropdown">
-        <a href="/admin/dashboard">
+        <a [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active" >
           <i class="fa fa-home"></i>
           <span>Dashboard</span>
          

@@ -37,14 +37,14 @@ table {
       </div>
       <div>
         <h3 ><a id="TxtEmailForm">{{question.Author}}</a></h3>
-        <p>{{question.Post}}</p>
+        <p id="TxtEmailForm">{{question.Post}}</p>
         
         <p class="mb-0">
           <span class="brand-react h5"></span>
           <span class="brand-javascript h5"></span>
         </p>
         <p class="meta">
-          <span class="mr-2 mb-2">{{question.Date | date:'short'}}</span>
+          <span class="mr-2 mb-2" id="TxtEmailForm">{{question.Date | date:'short'}}</span>
           
         </p>
         
@@ -98,9 +98,9 @@ table {
                </div>  
           </div>
           </div>
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#quickModal">Reply</button>
+          <button type="button" class="btn btn-info" data-toggle="modal"  (click)="edit(question)" data-target="#quickModal">Reply</button>
    
-           
+          <div *ngIf="editState && questiontoEdit.id == question.id">
           <div class="modal fade" id="quickModal" role="dialog">
               <div class="modal-dialog">
               
@@ -144,6 +144,7 @@ table {
                 
               </div>
             </div>  
+          </div>
           </div>
 
       </div>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "thl-test-e80de"
+  },
+  "targets": {
+    "thl-test-e80de": {
+      "hosting": {
+        "THL-Test": [
+          "thl-test-e80de"
+        ]
+      }
+    }
+  }
+}

@@ -77,7 +77,7 @@ onSubmit(questionlist){
     this.replies.Date=Date.now();
     this.managereplyService.createReply(this.replies);
     this.replies.Post='';
-    this.router.navigate(['/admin/postdetail/',this.getID,this.getName]);
+    this.router.navigate(['/admin/main/',this.getName]);
   console.log(this.replies);
 }
 }
